@@ -23,7 +23,7 @@ public static int[] ngor(int [] arr){
     Stack<pair> st = new Stack<>();
     for(int i =0; i<arr.length;i++){
         if(st.size()==0){
-            st.push(new pair(i, arr[i]));
+            // st.push(new pair(i, arr[i]));
 
         }else{
 
