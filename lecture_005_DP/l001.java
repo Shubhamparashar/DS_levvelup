@@ -100,13 +100,46 @@ public static int boardpath_optimize(int si, int ei){
     return q.getFirst();
     }
 
+public static int maxgold(int[][]m, int i, int j){
+    if(j>=m[0].length || i>=m.length || i<0)return 0;
+if(j==m[0].length-1&& (i<m.length && i>=0))return m[i][j];
+int f = maxgold(m, i, j+1);
+int u = maxgold(m, i-1, j+1);
+int d = maxgold(m, i+1, j+1);
+return m[i][j]+ Math.max(f,Math.max(u, d));
+
+}
+
+public static int pair(int n, int [] t){
+    if(n<=1)return t[n]= 1;
+    if(t[n]!=0)return t[n];
+    return t[n] =pair(n-1, t)+pair(n-2, t)*(n-1);
+    
+}
+public static int countpartition(int n, int k){
+
+    return 0;
+}
+
 public static void solve(){
-    int t[] = new int [11];
+    // int t[] = new int [11];
 // System.out.println(boardpath(0, 10, t));
 // System.out.println(boardpath_dp(0, 10));
-System.out.println(boardpath_optimize(0, 10));
+// System.out.println(boardpath_optimize(0, 10));
+int min[][] = {
+    {1, 2},
+    {3, 4}
+};
+int max =0;
+for(int i =0; i<2; i++){
+           max = Math.max(max, maxgold(min, i, 0));
+    // print(maxgold(min, i, 0));
+          }
+          print(max);
+// int n =5;
+// print(pair(n, new int[n+1]));
+}
 
 
 // print(t);
-}
 }
